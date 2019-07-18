@@ -1,0 +1,151 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Multicaster Demo'
+  ClientHeight = 620
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object TopLayout: TLayout
+    Align = Top
+    Padding.Left = 4.000000000000000000
+    Padding.Top = 4.000000000000000000
+    Padding.Right = 4.000000000000000000
+    Padding.Bottom = 4.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object StartStopSendButton: TButton
+      Action = StartStopSendAction
+      Align = Left
+      Enabled = True
+      ImageIndex = -1
+      Margins.Right = 8.000000000000000000
+      Position.X = 4.000000000000000000
+      Position.Y = 4.000000000000000000
+      Size.Width = 101.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+    end
+    object PortEditLayout: TLayout
+      Align = Right
+      Margins.Left = 12.000000000000000000
+      Position.X = 536.000000000000000000
+      Position.Y = 4.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object PortEdit: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = VertCenter
+        TabOrder = 0
+        KeyboardType = NumberPad
+        Position.Y = 6.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object BroadcastEditLayout: TLayout
+      Align = Client
+      Size.Width = 302.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object BroadcastEdit: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = VertCenter
+        TabOrder = 0
+        KeyboardType = NumberPad
+        Text = 'This is the text broadcast via UDP'
+        Position.Y = 6.000000000000000000
+        Size.Width = 302.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object StartStopReceiveButton: TButton
+      Action = StartStopReceiveAction
+      Align = Left
+      Enabled = True
+      ImageIndex = -1
+      Margins.Right = 8.000000000000000000
+      Position.X = 113.000000000000000000
+      Position.Y = 4.000000000000000000
+      Size.Width = 101.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+  end
+  object ReceiveMemo: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    StyledSettings = [Style, FontColor]
+    TextSettings.Font.Family = 'Courier New'
+    Align = Client
+    Margins.Left = 4.000000000000000000
+    Margins.Top = 4.000000000000000000
+    Margins.Right = 4.000000000000000000
+    Margins.Bottom = 4.000000000000000000
+    Size.Width = 632.000000000000000000
+    Size.Height = 365.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Viewport.Width = 628.000000000000000000
+    Viewport.Height = 361.000000000000000000
+  end
+  object BottomLayout: TLayout
+    Align = Bottom
+    Position.Y = 570.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    object ClearButton: TButton
+      Align = Center
+      Size.Width = 117.000000000000000000
+      Size.Height = 37.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Clear'
+      OnClick = ClearButtonClick
+    end
+  end
+  object AddressesListBox: TListBox
+    Align = Top
+    Margins.Left = 4.000000000000000000
+    Margins.Right = 4.000000000000000000
+    Position.X = 4.000000000000000000
+    Position.Y = 49.000000000000000000
+    Size.Width = 632.000000000000000000
+    Size.Height = 148.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 628.000000000000000000
+    Viewport.Height = 144.000000000000000000
+  end
+  object ActionList: TActionList
+    Left = 580
+    Top = 104
+    object StartStopSendAction: TAction
+      Text = 'Start Send'
+      OnExecute = StartStopSendActionExecute
+      OnUpdate = StartStopSendActionUpdate
+    end
+    object StartStopReceiveAction: TAction
+      Text = 'Start Receive'
+      OnExecute = StartStopReceiveActionExecute
+      OnUpdate = StartStopReceiveActionUpdate
+    end
+  end
+end
